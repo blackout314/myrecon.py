@@ -50,8 +50,8 @@ class App( object ):
         self.mods = t_mods
 
 
-    def setOutputDirectory( self, d_output ):
-        self.d_output = os.getcwd().rstrip('/')
+    def setOutputDirectory( self, cd_output ):
+        self.d_output = cd_output
         sys.stdout.write( '[+] output directory is: %s\n' % self.d_output )
         self.initFilePath()
 

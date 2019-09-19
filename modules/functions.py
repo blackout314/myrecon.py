@@ -6,7 +6,6 @@ import sys
 import argparse
 import tldextract
 
-
 def parseargs( app, t_available_mods ):
     parser = argparse.ArgumentParser()
     parser.add_argument( "-d","--domain",help="domain, single, multiples or files", action="append" )
@@ -24,9 +23,9 @@ def parseargs( app, t_available_mods ):
             except Exception as e:
                 sys.stdout.write( "%s[-] error occurred: %s%s\n" % (fg('red'),e,attr(0)) )
                 exit()
-            d_output = args.output
+            app.setOutputDirectory( args.output )
     else:
-        d_output = os.getcwd()
+        app.setOutputDirectory( os.getcwd() )
 
     if args.domain:
         t_domains = []
@@ -62,7 +61,6 @@ def parseargs( app, t_available_mods ):
     else:
         t_mods = t_available_mods
 
-    app.setOutputDirectory( d_output )
     app.setDomains( t_domains )
     app.setMods( t_mods )
 
